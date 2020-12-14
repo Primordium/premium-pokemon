@@ -1,6 +1,5 @@
 # Premium-Pokemon
 
-Exposes a rest endpoints for queries in https://rapidapi.com/theapiguy/api/free-nba/endpoints and a mysql or h2 database running in parallelly
 
 ## Building
 
