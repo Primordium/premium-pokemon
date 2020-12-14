@@ -1,15 +1,17 @@
-package com.premiumminds.pokemon;
+package com.premium.minds.pokemon;
 
 import java.util.Scanner;
 
-public class Main {
+public class Pokemon {
 
     public static void main(String[] args) {
         Ash ash = new Ash();
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Please input a string of Movements");
-        ash.move(scanner.nextLine());
-        System.out.println("Ash caught " + ash.getPokemonCounter() + " pokemons");
+        String input = scanner.nextLine();
+        ash.move(input);
+        System.out.println(ash.getPokemonCounter());
 
     }
 }

@@ -1,4 +1,4 @@
-package com.premiumminds.pokemon;
+package com.premium.minds.pokemon.util;
 
 /**
  *  Position Class

@@ -1,5 +1,6 @@
-package com.premiumminds.pokemon;
+package com.premium.minds.pokemon;
 
+import com.premium.minds.pokemon.util.Position;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

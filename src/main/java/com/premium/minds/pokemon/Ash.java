@@ -1,28 +1,30 @@
+
+package com.premium.minds.pokemon;
+
 /**
- *  Ash Class
- *  Class used to move and catch pokemons for Ash;
- *  Has method move(), that takes a string with directions which moves ash N, S , E , O
- *  And for every position ash moves to, he checks if he can catch a new pokemon
+ * Ash Class
+ * Class used to move and catch pokemons for Ash;
+ * Has method move(), that takes a string with directions which moves ash N, S , E , O
+ * And for every position ash moves to, he checks if he can catch a new pokemon
  */
 
-package com.premiumminds.pokemon;
+import com.premium.minds.pokemon.util.Direction;
+import com.premium.minds.pokemon.util.Position;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class Ash {
 
-    private final int speed;
     private int pokemonCounter;
     private Position currentPosition;
     private List<Position> pastPositions;
 
     public Ash() {
-        pokemonCounter = 1;
-        speed = 1;
+        pokemonCounter = 0;
         currentPosition = new Position(0, 0);
         pastPositions = new LinkedList<>();
-        pastPositions.add(new Position(currentPosition.getX(), currentPosition.getY()));
+        catchPokemon(currentPosition);
     }
 
     public int getPokemonCounter() {
@@ -32,19 +34,15 @@ public class Ash {
     public void move(String movements) {
 
         movements.toUpperCase().chars().forEachOrdered(c -> {
+
                     switch (c) {
-                        case 'N':
-                            currentPosition.setY(currentPosition.getY() + speed);
-                            break;
                         case 'S':
-                            currentPosition.setY(currentPosition.getY() - speed);
+                        case 'N':
+                            currentPosition.setY(currentPosition.getY() + (Direction.valueOf(Character.toString(c)).getyDirection()));
                             break;
                         case 'E':
-                            currentPosition.setX(currentPosition.getX() - speed);
-                            break;
                         case 'O':
-                            currentPosition.setX(currentPosition.getX() + speed);
-                            break;
+                            currentPosition.setX(currentPosition.getX() + (Direction.valueOf(Character.toString(c)).getxDirection()));
                         default:
                             break;
                     }
@@ -54,6 +52,7 @@ public class Ash {
     }
 
     public void catchPokemon(Position position) {
+
         if (!pastPositions.contains(position)) {
             pastPositions.add(new Position(currentPosition.getX(), currentPosition.getY()));
             pokemonCounter++;
