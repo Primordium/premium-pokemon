@@ -23,12 +23,9 @@ public class Position {
         return yPos;
     }
 
-    public void setX(int xPos) {
-        this.xPos = xPos;
-    }
-
-    public void setY(int yPos) {
-        this.yPos = yPos;
+    public void updatePosition(Direction direction) {
+        xPos += direction.getxDirection();
+        yPos += direction.getyDirection();
     }
 
     @Override

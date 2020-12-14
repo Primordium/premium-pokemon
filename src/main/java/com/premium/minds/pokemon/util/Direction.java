@@ -8,6 +8,7 @@ public enum Direction {
 
     private int xDirection;
     private int yDirection;
+
     Direction(int xDirection, int yDirection) {
         this.xDirection = xDirection;
         this.yDirection = yDirection;

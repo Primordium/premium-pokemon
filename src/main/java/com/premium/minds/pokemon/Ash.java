@@ -16,36 +16,24 @@ import java.util.List;
 
 public class Ash {
 
-    private int pokemonCounter;
     private Position currentPosition;
     private List<Position> pastPositions;
 
     public Ash() {
-        pokemonCounter = 0;
         currentPosition = new Position(0, 0);
         pastPositions = new LinkedList<>();
         catchPokemon(currentPosition);
     }
 
     public int getPokemonCounter() {
-        return pokemonCounter;
+        return pastPositions.size();
     }
 
     public void move(String movements) {
 
-        movements.toUpperCase().chars().forEachOrdered(c -> {
-
-                    switch (c) {
-                        case 'S':
-                        case 'N':
-                            currentPosition.setY(currentPosition.getY() + (Direction.valueOf(Character.toString(c)).getyDirection()));
-                            break;
-                        case 'E':
-                        case 'O':
-                            currentPosition.setX(currentPosition.getX() + (Direction.valueOf(Character.toString(c)).getxDirection()));
-                        default:
-                            break;
-                    }
+        movements.toUpperCase().chars().filter(e -> (e == 'S' || e == 'N' || e == 'E' || e == 'O')).forEachOrdered(c ->
+                {
+                    currentPosition.updatePosition(Direction.valueOf(Character.toString(c)));
                     catchPokemon(currentPosition);
                 }
         );
@@ -55,7 +43,6 @@ public class Ash {
 
         if (!pastPositions.contains(position)) {
             pastPositions.add(new Position(currentPosition.getX(), currentPosition.getY()));
-            pokemonCounter++;
         }
     }
 

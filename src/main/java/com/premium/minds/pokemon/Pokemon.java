@@ -10,7 +10,9 @@ public class Pokemon {
 
         System.out.println("Please input a string of Movements");
         String input = scanner.nextLine();
+
         ash.move(input);
+
         System.out.println(ash.getPokemonCounter());
 
     }

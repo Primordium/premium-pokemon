@@ -93,11 +93,14 @@ public class AshTest {
     public void catchPokemonInPreviousPosition() {
 
         int initialPokemons = ash.getPokemonCounter();
+        System.out.println(initialPokemons);
+        System.out.println(ash.getPokemonCounter());
         LinkedList<Position> positionsMock = mock(LinkedList.class);
         Position position = new Position(5, 5);
 
         ReflectionTestUtils.setField(ash, "pastPositions", positionsMock);
         when(positionsMock.contains(any())).thenReturn(true);
+        when(positionsMock.size()).thenReturn(1);
 
         ash.catchPokemon(position);
         verify(positionsMock, times(0)).add(any());
