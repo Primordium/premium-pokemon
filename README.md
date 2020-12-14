@@ -12,14 +12,6 @@
     $ mvn test
     ```
 
-   - root: api/nbadb
-   - GET  "/" -> Intructions
-   - GET  "/date/{date}" with yyyy-MM-dd format searches for games the date provided;
-   - GET  "/game/{gameId}" searches for games with id provided;
-   - POST "comments/{gameId}" Creates a new comment for the game with the id provided;
-   - PUT  "comments/{commentId}" Edits the comment with the provided comment id;
-   - DELETE "comments/{commentId}" Deletes a comment with the provided comment id;
-
 ## How to run
 
 After building the project :
